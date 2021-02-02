@@ -53,7 +53,7 @@ stages:
         write-host "~~~~~~~~"
         dir "$(Build.SourcesDirectory)\oneget\src\Microsoft.PackageManagement.NuGetProvider"
         write-host "--------"
-        dir "$(Build.SourcesDirectory)\oneget\src\Microsoft.PackageManagement.NuGetProvider\gen"
+        dir "$(Build.SourcesDirectory)\oneget\src\Microsoft.PackageManagement.NuGetProvider\resources"
         ./build.ps1 -Framework all -Configuration Release
       displayName: Execute build
 
