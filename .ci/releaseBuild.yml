@@ -49,6 +49,8 @@ stages:
     - pwsh: |
         Set-Location "$(Build.SourcesDirectory)/OneGet/src"
         dir
+        write-host "~~~~~~~~"
+        dir "$(Build.SourcesDirectory)\oneget\src\Microsoft.PackageManagement.NuGetProvider\resources"
         ./build.ps1 -Framework all -Configuration Release
       displayName: Execute build
 
