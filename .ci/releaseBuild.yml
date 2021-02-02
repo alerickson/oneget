@@ -44,7 +44,7 @@ stages:
     - group: ESRP
     steps:
     - checkout: self
-      submodules: true
+      #submodules: true
 
     # the steps for building the module go here
     - pwsh: |
