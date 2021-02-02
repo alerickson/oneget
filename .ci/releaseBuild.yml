@@ -106,13 +106,6 @@ stages:
           **\*.mof
           **\Microsoft*.dll
 
-    # now create the nupkg which we will use to publish the module
-    # to the powershell gallery (not part of this yaml)
-    #- pwsh: |
-    #    Set-Location "$(Build.SourcesDirectory)/OSS_Microsoft_PSSA"
-    #    ./build -BuildNupkg -signed
-    #  displayName: Create nupkg for publishing
-
     # finally publish the parts of the build which will be used in the next stages
     # if it's not published, the subsequent stages will not be able to access it.
     # This is the build directory (it contains all of the dll/pdb files)
@@ -143,7 +136,6 @@ stages:
         sourceScanPath: '$(Build.SourcesDirectory)/PackageManagement'
         # binskim - this isn't recursive, so you need the path to the assemblies
         AnalyzeTarget: '$(Pipeline.Workspace)/fullclr/Microsoft.*.dll'
-                       '$(Pipeline.Workspace)/coreclr/netstandard2.0/Microsoft.*.dll'
         # credscan - scan the repo for credentials
         # you can suppress some files with this.
         #suppressionsFile: '$(Build.SourcesDirectory)/OSS_Microsoft_PSSA/tools/ReleaseBuild/CredScan.Suppressions.json'
